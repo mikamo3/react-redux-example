@@ -5,12 +5,16 @@ import IncrementAsync from "./IncrementAsync";
 import "./App.css";
 import { Provider } from "react-redux";
 import configureStore from "./store";
+import Inc from "./Inc";
+import Todo from "./Todo";
+import Async from "./Async";
+
 const store = configureStore();
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <Increment />
-      <IncrementAsync />
+      <Todo />
+      <Async />
     </Provider>
   );
 };

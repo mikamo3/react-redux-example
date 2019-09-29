@@ -14,3 +14,8 @@ export const decrement = async (num: number) => {
   await wait();
   return num - 1;
 };
+
+export const returnValue = async (str: string) => {
+  await wait();
+  return `return ${str}`;
+};

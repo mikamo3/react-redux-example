@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { actions } from "./store/increment";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "./store";
 
-const Increment: React.FC = () => {
+const hooks = () => {
+  const [hoge, setHoge] = useState();
   const dispatch = useDispatch();
   const num = useSelector((state: AppState) => state.incrementState);
+  const increment = dispatch(actions.increment());
+  const decrement = dispatch(actions.decrement);
+  return { num, increment, decrement };
+};
+
+const Increment: React.FC = () => {
+  const { num, increment, decrement } = hooks();
+  const dispatch = useDispatch();
   return (
     <div>
       <button
