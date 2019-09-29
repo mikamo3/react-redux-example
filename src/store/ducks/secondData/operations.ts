@@ -2,17 +2,7 @@ import { fetchSecondData } from "./actions";
 import { SecondData } from "./types";
 import { call, put, takeEvery } from "redux-saga/effects";
 
-//fetch処理
-let id = 0;
-const fetch = (firstDataId: number, text: string) => {
-  id++;
-  return new Promise<SecondData>(resolve => {
-    setTimeout(() => {
-      resolve({ firstDataId: firstDataId, id: id, text: text });
-    }, 1000);
-  });
-};
-
+import { fetchSecondData as fetch } from "../../../service/api";
 function* handleRequestFirstdata(
   action: ReturnType<typeof fetchSecondData.request>
 ) {

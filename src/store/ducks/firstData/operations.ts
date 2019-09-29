@@ -1,20 +1,7 @@
 import { fetchFirstData } from "./actions";
 import { FirstData } from "./types";
 import { call, put, takeEvery } from "redux-saga/effects";
-
-//fetch処理
-const fetch = () => {
-  const resolveData: FirstData[] = [
-    { id: 1, text: "foo" },
-    { id: 2, text: "bar" },
-    { id: 3, text: "baz" }
-  ];
-  return new Promise<FirstData[]>(resolve => {
-    setTimeout(() => {
-      resolve(resolveData);
-    }, 1000);
-  });
-};
+import { fetchFirstData as fetch } from "../../../service/api";
 
 function* handleRequestFirstdata(
   action: ReturnType<typeof fetchFirstData.request>
