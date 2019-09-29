@@ -15,8 +15,9 @@ const useData = () => {
   });
   useEffect(() => {
     dispatch(firstData.operations.fetchFirstDataRequest());
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
+    console.log(firstDataIds);
     firstDataIds.forEach(id => {
       dispatch(
         secondData.operations.fetchFirstDataRequest({
@@ -25,7 +26,7 @@ const useData = () => {
         })
       );
     });
-  }, [firstDataIds]);
+  }, [firstDataIds, dispatch]);
   return dataForView;
 };
 export default useData;

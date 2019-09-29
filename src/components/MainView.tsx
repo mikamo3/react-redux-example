@@ -1,6 +1,5 @@
 import React from "react";
 import useData from "./MainView.hooks";
-import { useDispatch } from "react-redux";
 const MainView: React.FC = () => {
   const dataForView = useData();
   return (
